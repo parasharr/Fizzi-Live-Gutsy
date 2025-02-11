@@ -2,24 +2,34 @@
 
 import * as THREE from "three";
 import { useRef, useEffect } from "react";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, extend } from "@react-three/fiber";
 import gsap from "gsap";
+
+// Make InstancedMesh available as a JSX element
+extend({ InstancedMesh: THREE.InstancedMesh });
+
+interface BubblesProps {
+  count?: number;
+  speed?: number;
+  bubbleSize?: number;
+  opacity?: number;
+  repeat?: boolean;
+}
 
 // Using Object3D as a container to efficiently set and update positions for each bubble instance
 const o = new THREE.Object3D();
 
-// Customizations in case you want to use this in other scenes.
 export function Bubbles({
   count = 300,
   speed = 5,
   bubbleSize = 0.05,
   opacity = 0.5,
   repeat = true,
-}) {
+}: BubblesProps) {
   const meshRef = useRef<THREE.InstancedMesh>(null);
 
   // An array that holds all of our bubbles' speeds
-  const bubbleSpeed = useRef(new Float32Array(count));
+  const bubbleSpeed = useRef<Float32Array>(new Float32Array(count));
   const minSpeed = speed * 0.001;
   const maxSpeed = speed * 0.005;
 
@@ -96,10 +106,8 @@ export function Bubbles({
   return (
     <instancedMesh
       ref={meshRef}
-      args={[undefined, undefined, count]}
+      args={[geometry, material, count]}
       position={[0, 0, 0]}
-      material={material}
-      geometry={geometry}
-    ></instancedMesh>
+    />
   );
 }
