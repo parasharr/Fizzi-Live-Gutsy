@@ -9,7 +9,7 @@ const Loader = dynamic(
   () => import("@react-three/drei").then((mod) => mod.Loader), { ssr: false }
 );
 
-type Props = {};
+type Props = object;
 
 const ViewCanvas: React.FC<Props> = () => {
   return (

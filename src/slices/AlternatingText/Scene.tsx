@@ -11,7 +11,7 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-type Props = {};
+type Props = object;
 
 const Scene: React.FC<Props> = () => {
   const canRef = useRef<Group>(null);

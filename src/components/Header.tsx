@@ -1,7 +1,7 @@
 import React from 'react';
 import { FizziLogo } from '@/components/FizziLogo';
 
-type Props = {};
+type Props = object;
 
 const Header: React.FC<Props> = ({}) => {
   return (
