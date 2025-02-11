@@ -4,7 +4,7 @@ import FloatingCan from "@/components/FloatingCan";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { Content } from "@prismicio/client";
 import { Cloud, Clouds, Environment, Text } from "@react-three/drei";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import * as THREE from "three";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -34,6 +34,12 @@ export default function Scene({ sentence, flavor }: SkyDiveProps) {
     x: getXPosition(distance),
     y: getYPosition(-1 * distance),
   });
+
+  useEffect(() => {
+    if (groupRef.current) {
+      groupRef.current.rotation.set(0, 0, 0.5);
+    }
+  }, []);
 
   useGSAP(() => {
     if (
@@ -133,9 +139,8 @@ export default function Scene({ sentence, flavor }: SkyDiveProps) {
     <>
       <group ref={groupRef}>
         {/* Can */}
-        <group rotation={[0, 0, 0.5]}>
+        <group ref={canRef}>
           <FloatingCan
-            ref={canRef}
             flavor={flavor}
             rotationIntensity={0}
             floatIntensity={3}
