@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/no-namespace */
+"use client";
 
-import * as THREE from 'three';
-import { useRef, useEffect } from 'react';
-import { useFrame } from '@react-three/fiber';
-import gsap from 'gsap';
+import * as THREE from "three";
+import { useRef, useEffect } from "react";
+import { useFrame } from "@react-three/fiber";
+import gsap from "gsap";
 
 // Using Object3D as a container to efficiently set and update positions for each bubble instance
 const o = new THREE.Object3D();
@@ -25,6 +25,7 @@ export function Bubbles({
 
   // Create geometry and material for our mesh
   const geometry = new THREE.SphereGeometry(bubbleSize, 16, 16);
+
   const material = new THREE.MeshStandardMaterial({
     transparent: true,
     opacity,
@@ -95,8 +96,10 @@ export function Bubbles({
   return (
     <instancedMesh
       ref={meshRef}
-      args={[geometry, material, count]}
+      args={[undefined, undefined, count]}
       position={[0, 0, 0]}
-    />
+      material={material}
+      geometry={geometry}
+    ></instancedMesh>
   );
 }
