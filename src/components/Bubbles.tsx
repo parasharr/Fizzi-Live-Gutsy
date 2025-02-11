@@ -1,9 +1,7 @@
-/* eslint-disable @typescript-eslint/no-namespace */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 "use client";
 
 import * as THREE from "three";
+import { InstancedMesh } from "three"; // Import InstancedMesh
 import { useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import gsap from "gsap";
@@ -19,7 +17,7 @@ export function Bubbles({
   opacity = 0.5,
   repeat = true,
 }) {
-  const meshRef = useRef<THREE.InstancedMesh>(null);
+  const meshRef = useRef<InstancedMesh>(null); // Use InstancedMesh type
 
   // An array that holds all of our bubbles' speeds
   const bubbleSpeed = useRef(new Float32Array(count));
