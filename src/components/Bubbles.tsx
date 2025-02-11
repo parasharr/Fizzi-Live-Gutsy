@@ -93,10 +93,10 @@ export function Bubbles({
   });
 
   return (
-    <instancedMesh
+    <InstancedMesh
       ref={meshRef}
       args={[geometry, material, count]}
       position={[0, 0, 0]}
-    />
+    ></InstancedMesh>
   );
 }
