@@ -31,6 +31,11 @@ declare module 'react' {
         intensity?: number;
         position?: [number, number, number];
       };
+      pointLight: React.DetailedHTMLProps<React.HTMLAttributes<THREE.PointLight>, THREE.PointLight> & {
+        intensity?: number;
+        color?: string;
+        decay?: number;
+      };
     }
   }
 }

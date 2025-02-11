@@ -9,8 +9,12 @@ import * as THREE from "three";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { extend } from "@react-three/fiber";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+// Extend elements to make them available as JSX elements
+extend({ Mesh: THREE.Mesh, Group: THREE.Group, DirectionalLight: THREE.DirectionalLight, PointLight: THREE.PointLight });
 
 type SkyDiveProps = {
   sentence: string | null;
