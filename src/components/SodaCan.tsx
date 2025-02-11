@@ -3,6 +3,7 @@
 import { useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import { useEffect, useRef } from "react";
+import { extend } from "@react-three/fiber";
 
 // Preload the GLTF model
 useGLTF.preload("/Soda-can.gltf");
@@ -20,6 +21,9 @@ const metalMaterial = new THREE.MeshStandardMaterial({
   metalness: 1,
   color: "#bbbbbb",
 });
+
+// Extend the mesh element to make it available as a JSX element
+extend({ Mesh: THREE.Mesh });
 
 export type SodaCanProps = {
   flavor?: keyof typeof flavorTextures;
