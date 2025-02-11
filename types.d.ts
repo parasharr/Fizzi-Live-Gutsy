@@ -36,6 +36,10 @@ declare module 'react' {
         color?: string;
         decay?: number;
       };
+      ambientLight: React.DetailedHTMLProps<React.HTMLAttributes<THREE.AmbientLight>, THREE.AmbientLight> & {
+        intensity?: number;
+        color?: string;
+      };
     }
   }
 }
