@@ -19,7 +19,13 @@ declare module 'react' {
         castShadow?: boolean;
         receiveShadow?: boolean;
         geometry?: THREE.BufferGeometry;
-        material?: THREE.Material;
+        material?: THREE.Material | THREE.Material[];
+      };
+      meshStandardMaterial: React.DetailedHTMLProps<React.HTMLAttributes<THREE.MeshStandardMaterial>, THREE.MeshStandardMaterial> & {
+        ref?: React.Ref<THREE.MeshStandardMaterial>;
+        roughness?: number;
+        metalness?: number;
+        map?: THREE.Texture;
       };
     }
   }
