@@ -10,6 +10,11 @@ declare module 'react' {
         material?: THREE.Material | THREE.Material[];
         geometry?: THREE.BufferGeometry;
       };
+      group: React.DetailedHTMLProps<React.HTMLAttributes<THREE.Group>, THREE.Group> & {
+        ref?: React.Ref<THREE.Group>;
+        position?: [number, number, number];
+      };
     }
   }
 }
+
