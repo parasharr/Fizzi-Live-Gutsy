@@ -1,10 +1,10 @@
-import React from 'react'
-import { FizziLogo } from './FizziLogo'
-import CircleText from './CircleText'
+import React from 'react';
+import { FizziLogo } from './FizziLogo';
+import CircleText from './CircleText';
 
-type Props = {}
+type Props = {};
 
-export default function Footer({}: Props) {
+const Footer: React.FC<Props> = ({}) => {
   return (
     <footer className='bg-[#FEE832] text-[#FE6334]'>
         <div className='relative mx-auto flex w-full max-w-4xl justify-center px-4 py-10'>
@@ -14,5 +14,7 @@ export default function Footer({}: Props) {
             </div>
         </div>
     </footer>
-  )
+  );
 }
+
+export default Footer;
