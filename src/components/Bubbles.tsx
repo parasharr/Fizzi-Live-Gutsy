@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-namespace */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 "use client";
 
 import * as THREE from "three";
@@ -93,10 +96,10 @@ export function Bubbles({
   });
 
   return (
-    <InstancedMesh
+    <instancedMesh
       ref={meshRef}
       args={[geometry, material, count]}
       position={[0, 0, 0]}
-    ></InstancedMesh>
+    />
   );
 }

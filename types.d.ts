@@ -4,7 +4,7 @@ import * as THREE from 'three';
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      instancedMesh: {
+      InstancedMesh: {
         ref?: React.Ref<THREE.InstancedMesh>;
         args?: [THREE.BufferGeometry?, THREE.Material?, number?];
         position?: [number, number, number];
