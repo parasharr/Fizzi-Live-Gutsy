@@ -14,7 +14,13 @@ declare module 'react' {
         ref?: React.Ref<THREE.Group>;
         position?: [number, number, number];
       };
+      mesh: React.DetailedHTMLProps<React.HTMLAttributes<THREE.Mesh>, THREE.Mesh> & {
+        ref?: React.Ref<THREE.Mesh>;
+        castShadow?: boolean;
+        receiveShadow?: boolean;
+        geometry?: THREE.BufferGeometry;
+        material?: THREE.Material;
+      };
     }
   }
 }
-

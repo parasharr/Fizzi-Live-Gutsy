@@ -22,8 +22,8 @@ const metalMaterial = new THREE.MeshStandardMaterial({
   color: "#bbbbbb",
 });
 
-// Extend the mesh element to make it available as a JSX element
-extend({ Mesh: THREE.Mesh });
+// Extend elements to make them available as JSX elements
+extend({ Mesh: THREE.Mesh, Group: THREE.Group });
 
 export type SodaCanProps = {
   flavor?: keyof typeof flavorTextures;
