@@ -2,7 +2,9 @@
 
 import { useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
+import { useEffect, useRef } from "react";
 
+// Preload the GLTF model
 useGLTF.preload("/Soda-can.gltf");
 
 const flavorTextures = {
@@ -22,28 +24,36 @@ const metalMaterial = new THREE.MeshStandardMaterial({
 export type SodaCanProps = {
   flavor?: keyof typeof flavorTextures;
   scale?: number;
+  rotation?: [number, number, number];
 };
 
 export function SodaCan({
   flavor = "blackCherry",
   scale = 2,
+  rotation = [0, -Math.PI, 0],
   ...props
 }: SodaCanProps) {
+  const groupRef = useRef<THREE.Group>(null);
   const { nodes } = useGLTF("/Soda-can.gltf");
 
   const labels = useTexture(flavorTextures);
 
   // Fixes upside down labels
-  labels.strawberryLemonade.flipY = false;
-  labels.blackCherry.flipY = false;
-  labels.watermelon.flipY = false;
-  labels.grape.flipY = false;
-  labels.lemonLime.flipY = false;
+  Object.keys(labels).forEach(key => {
+    labels[key as keyof typeof flavorTextures].flipY = false;
+  });
 
-  const label = labels[flavor];
+  const label = labels[flavor as keyof typeof flavorTextures];
+
+  useEffect(() => {
+    if (groupRef.current) {
+      groupRef.current.scale.set(scale, scale, scale);
+      groupRef.current.rotation.set(...rotation);
+    }
+  }, [scale, rotation]);
 
   return (
-    <group {...props} dispose={null} scale={scale} rotation={[0, -Math.PI, 0]}>
+    <group ref={groupRef} {...props}>
       <mesh
         castShadow
         receiveShadow
