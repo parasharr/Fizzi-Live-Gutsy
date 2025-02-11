@@ -8,20 +8,6 @@ import gsap from "gsap";
 // Using Object3D as a container to efficiently set and update positions for each bubble instance
 const o = new THREE.Object3D();
 
-declare module 'react' {
-  namespace JSX {
-    interface IntrinsicElements {
-      instancedMesh: React.DetailedHTMLProps<React.HTMLAttributes<THREE.InstancedMesh>, THREE.InstancedMesh> & {
-        ref?: React.Ref<THREE.InstancedMesh>;
-        args?: [THREE.BufferGeometry?, THREE.Material?, number?];
-        position?: [number, number, number];
-        material?: THREE.Material | THREE.Material[];
-        geometry?: THREE.BufferGeometry;
-      };
-    }
-  }
-}
-
 // Customizations in case you want to use this in other scenes.
 export function Bubbles({
   count = 300,
@@ -39,7 +25,6 @@ export function Bubbles({
 
   // Create geometry and material for our mesh
   const geometry = new THREE.SphereGeometry(bubbleSize, 16, 16);
-
   const material = new THREE.MeshStandardMaterial({
     transparent: true,
     opacity,
@@ -110,10 +95,8 @@ export function Bubbles({
   return (
     <instancedMesh
       ref={meshRef}
-      args={[undefined, undefined, count]}
+      args={[geometry, material, count]}
       position={[0, 0, 0]}
-      material={material}
-      geometry={geometry}
-    ></instancedMesh>
+    />
   );
 }
