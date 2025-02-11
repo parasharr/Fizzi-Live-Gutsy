@@ -27,6 +27,10 @@ declare module 'react' {
         metalness?: number;
         map?: THREE.Texture;
       };
+      directionalLight: React.DetailedHTMLProps<React.HTMLAttributes<THREE.DirectionalLight>, THREE.DirectionalLight> & {
+        intensity?: number;
+        position?: [number, number, number];
+      };
     }
   }
 }
