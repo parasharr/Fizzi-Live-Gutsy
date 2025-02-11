@@ -21,7 +21,7 @@ export function Bubbles({
   // An array that holds all of our bubbles' speeds
   const bubbleSpeed = useRef(new Float32Array(count));
   const minSpeed = speed * 0.001;
-  const maxSpeed = speed * 0.005;                                                                                
+  const maxSpeed = speed * 0.005;
 
   // Create geometry and material for our mesh
   const geometry = new THREE.SphereGeometry(bubbleSize, 16, 16);
@@ -44,7 +44,7 @@ export function Bubbles({
       o.position.set(
         gsap.utils.random(-4, 4),
         gsap.utils.random(-4, 4),
-        gsap.utils.random(-4, 4),
+        gsap.utils.random(-4, 4)
       );
 
       // Update matrix so that the position is applied
