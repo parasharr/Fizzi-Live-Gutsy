@@ -1,10 +1,9 @@
-"use client";
+/* eslint-disable @typescript-eslint/no-namespace */
 
-import * as THREE from "three";
-import { InstancedMesh } from "three"; // Import InstancedMesh
-import { useRef, useEffect } from "react";
-import { useFrame } from "@react-three/fiber";
-import gsap from "gsap";
+import * as THREE from 'three';
+import { useRef, useEffect } from 'react';
+import { useFrame } from '@react-three/fiber';
+import gsap from 'gsap';
 
 // Using Object3D as a container to efficiently set and update positions for each bubble instance
 const o = new THREE.Object3D();
@@ -17,7 +16,7 @@ export function Bubbles({
   opacity = 0.5,
   repeat = true,
 }) {
-  const meshRef = useRef<InstancedMesh>(null); // Use InstancedMesh type
+  const meshRef = useRef<THREE.InstancedMesh>(null);
 
   // An array that holds all of our bubbles' speeds
   const bubbleSpeed = useRef(new Float32Array(count));

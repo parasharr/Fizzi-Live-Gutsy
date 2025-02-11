@@ -1,10 +1,9 @@
-// types.d.ts
 import * as THREE from 'three';
 
-declare global {
+declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
-      InstancedMesh: {
+      instancedMesh: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
         ref?: React.Ref<THREE.InstancedMesh>;
         args?: [THREE.BufferGeometry?, THREE.Material?, number?];
         position?: [number, number, number];
