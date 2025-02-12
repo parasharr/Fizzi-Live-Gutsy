@@ -13,6 +13,7 @@ declare module 'react' {
       group: React.DetailedHTMLProps<React.HTMLAttributes<THREE.Group>, THREE.Group> & {
         ref?: React.Ref<THREE.Group>;
         position?: [number, number, number];
+        rotation?: [number, number, number]; // Added rotation property
       };
       mesh: React.DetailedHTMLProps<React.HTMLAttributes<THREE.Mesh>, THREE.Mesh> & {
         ref?: React.Ref<THREE.Mesh>;
