@@ -1,11 +1,10 @@
-// This file is a Higher Order Component
-
+import { ReactNode } from "react";
 import clsx from "clsx";
 
 type BoundedProps = {
   as?: React.ElementType;
   className?: string;
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 export const Bounded = ({
